@@ -1,0 +1,145 @@
+[{
+    "type": "DISRUPTION",
+    "id": "6048395",
+    "title": "Venlo-Roermond",
+    "isActive": true,
+    "topic": "disruption_6048395_nl",
+    "local": false,
+    "titleSections": [
+        [{
+            "type": "STATION",
+            "value": "Venlo"
+        }, {
+            "type": "ICON",
+            "value": "DISRUPTION"
+        }, {
+            "type": "STATION",
+            "value": "Reuver"
+        }, {
+            "type": "STATION",
+            "value": "Roermond"
+        }]
+    ],
+    "registrationTime": "2024-06-07T20:19:52+0200",
+    "releaseTime": "2024-06-07T20:19:52+0200",
+    "start": "2024-06-07T19:47:34+0200",
+    "end": "2024-06-07T20:30:00+0200",
+    "phase": {
+        "id": "4",
+        "label": "Storing voorbij"
+    },
+    "impact": {
+        "value": 3
+    },
+    "expectedDuration": {
+        "description": "De treinen rijden weer normaal rond 20:30 uur.",
+        "endTime": "2024-06-07T20:30:00+0200"
+    },
+    "publicationSections": [{
+        "section": {
+            "stations": [{
+                "coordinate": {
+                    "lat": 51.3636093139648,
+                    "lng": 6.17277765274048
+                },
+                "countryCode": "NL",
+                "name": "Venlo",
+                "stationCode": "VL",
+                "uicCode": "8400644"
+            }, {
+                "coordinate": {
+                    "lat": 51.33894,
+                    "lng": 6.14253
+                },
+                "countryCode": "NL",
+                "name": "Tegelen",
+                "stationCode": "TG",
+                "uicCode": "8400591"
+            }, {
+                "coordinate": {
+                    "lat": 51.2832191665301,
+                    "lng": 6.07895851135253
+                },
+                "countryCode": "NL",
+                "name": "Reuver",
+                "stationCode": "RV",
+                "uicCode": "8400518"
+            }, {
+                "coordinate": {
+                    "lat": 51.23582,
+                    "lng": 6.03228
+                },
+                "countryCode": "NL",
+                "name": "Swalmen",
+                "stationCode": "SM",
+                "uicCode": "8400583"
+            }, {
+                "coordinate": {
+                    "lat": 51.1930541992188,
+                    "lng": 5.9941668510437
+                },
+                "countryCode": "NL",
+                "name": "Roermond",
+                "stationCode": "RM",
+                "uicCode": "8400523"
+            }],
+            "direction": "BOTH"
+        },
+        "consequence": {
+            "section": {
+                "stations": [{
+                    "coordinate": {
+                        "lat": 51.3636093139648,
+                        "lng": 6.17277765274048
+                    },
+                    "countryCode": "NL",
+                    "name": "Venlo",
+                    "stationCode": "VL",
+                    "uicCode": "8400644"
+                }, {
+                    "coordinate": {
+                        "lat": 51.33894,
+                        "lng": 6.14253
+                    },
+                    "countryCode": "NL",
+                    "name": "Tegelen",
+                    "stationCode": "TG",
+                    "uicCode": "8400591"
+                }, {
+                    "coordinate": {
+                        "lat": 51.2832191665301,
+                        "lng": 6.07895851135253
+                    },
+                    "countryCode": "NL",
+                    "name": "Reuver",
+                    "stationCode": "RV",
+                    "uicCode": "8400518"
+                }],
+                "direction": "ONE_WAY"
+            },
+            "description": "beperkingen voorbij",
+            "level": "LESS_TRAINS"
+        },
+        "sectionType": "NL"
+    }],
+    "summaryAdditionalTravelTime": {
+        "label": "De vertraging neemt af.",
+        "shortLabel": "Vertraging neemt af"
+    },
+    "timespans": [{
+        "start": "2024-06-07T19:47:34+0200",
+        "end": "2024-06-07T20:30:00+0200",
+        "situation": {
+            "label": "Tussen Venlo en Reuver zijn de beperkingen voorbij."
+        },
+        "cause": {
+            "label": "Defecte trein"
+        },
+        "additionalTravelTime": {
+            "label": "De vertraging neemt af.",
+            "shortLabel": "Vertraging neemt af"
+        },
+        "advices": []
+    }],
+    "alternativeTransportTimespans": []
+}]
