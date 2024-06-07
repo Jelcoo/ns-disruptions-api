@@ -13,8 +13,14 @@ async function main() {
         if (existingIds.includes(disrupt.id)) return;
 
         createDisruption(disrupt.id, disrupt.timespans[0].cause.label, new Date(disrupt.timespans[0].start), disrupt.titleSections, disrupt);
-        
-        sendDiscordNotification('New Disruption', hexToDecimal("#ff0000"), disrupt.timespans[0].situation.label, []);
+
+        sendDiscordNotification('New Disruption', hexToDecimal("#ff0000"), disrupt.timespans[0].situation.label, [
+            {
+                name: 'Link',
+                value: `https://www.ns.nl/reisinformatie/actuele-situatie-op-het-spoor/storing?id=${disrupt.id}`,
+                inline: true
+            }
+        ]);
     });
 }
 
