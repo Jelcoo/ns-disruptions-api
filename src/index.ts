@@ -1,10 +1,12 @@
-import 'dotenv/config'
+import 'dotenv/config';
+import { CronJob } from 'cron';
 import { getDisruptions as apiGetDisruptions } from './api/index';
 import { getDisruptions as databaseGetDisruptions, createDisruption } from './database/index';
 import { sendNotification as sendDiscordNotification } from './notification/discord';
 import { hexToDecimal } from './utils/colors';
 
-async function main() {
+async function checkDisruptions() {
+    console.log('Checking disruptions...');
     const disruptions: any = await apiGetDisruptions();
     const existingDisruptions = await databaseGetDisruptions();
     const existingIds = existingDisruptions.map(disruption => disruption.nsId);
@@ -24,4 +26,16 @@ async function main() {
     });
 }
 
-main();
+if (process.argv.includes('--test')) {
+    checkDisruptions();
+}
+
+new CronJob(
+	'0 * * * * *',
+	function () {
+        checkDisruptions();
+	},
+	null, // onComplete
+	true, // start
+	'Europe/Amsterdam'
+);
