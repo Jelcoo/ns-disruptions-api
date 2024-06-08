@@ -35,6 +35,6 @@ export async function getDisruptionUpdate(data: string): Promise<DisruptionUpdat
 export async function createDisruptionUpdate(disruptionId: number, updateTime: Date, data: any) {
     await db.execute(
         'INSERT INTO `disruption_updates` (`disruptionId`, `updateTime`, `data`) VALUES (?, ?, ?)',
-        [disruptionId, updateTime, JSON.stringify(data)]
+        [disruptionId, timeToMysql(updateTime), JSON.stringify(data)]
     );
 }
