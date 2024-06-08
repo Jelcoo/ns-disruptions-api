@@ -22,24 +22,24 @@ async function checkDisruptions() {
                     inline: true
                 }
             ]);
-        }
-
-        const existingDisruption = existingDisruptions.find(disruption => disruption.nsId === disrupt.id);
-        if (!existingDisruption) return;
-
-        const disruptionUpdate = await getDisruptionUpdate(disrupt);
-        if (disruptionUpdate.length > 0) return;
-
-        createDisruptionUpdate(existingDisruption.disruptionId, disrupt.registrationTime, disrupt);
-        
-        if (disrupt.phase.id == '4') {
-            sendDiscordNotification('Disruption Resolved', hexToDecimal("#00ff00"), disrupt.expectedDuration.description, [
-                {
-                    name: 'Link',
-                    value: `https://www.ns.nl/reisinformatie/actuele-situatie-op-het-spoor/storing?id=${disrupt.id}`,
-                    inline: true
-                }
-            ]);
+        } else {
+            const existingDisruption = existingDisruptions.find(disruption => disruption.nsId === disrupt.id);
+            if (!existingDisruption) return;
+    
+            const disruptionUpdate = await getDisruptionUpdate(disrupt);
+            if (disruptionUpdate.length > 0) return;
+    
+            createDisruptionUpdate(existingDisruption.disruptionId, disrupt.registrationTime, disrupt);
+            
+            if (disrupt.phase.id == '4') {
+                sendDiscordNotification('Disruption Resolved', hexToDecimal("#00ff00"), disrupt.expectedDuration.description, [
+                    {
+                        name: 'Link',
+                        value: `https://www.ns.nl/reisinformatie/actuele-situatie-op-het-spoor/storing?id=${disrupt.id}`,
+                        inline: true
+                    }
+                ]);
+            }
         }
     });
 }
