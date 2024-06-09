@@ -17,6 +17,11 @@ async function checkDisruptions() {
 
             sendDiscordNotification('New Disruption', hexToDecimal("#ff0000"), disrupt.timespans[0].situation.label, [
                 {
+                    name: 'ETA',
+                    value: disrupt.expectedDuration.description,
+                    inline: true
+                },
+                {
                     name: 'Link',
                     value: `https://www.ns.nl/reisinformatie/actuele-situatie-op-het-spoor/storing?id=${disrupt.id}`,
                     inline: true
@@ -32,7 +37,12 @@ async function checkDisruptions() {
             createDisruptionUpdate(existingDisruption.disruptionId, new Date(disrupt.registrationTime), disrupt);
             
             if (disrupt.phase.id == '4') {
-                sendDiscordNotification('Disruption Resolved', hexToDecimal("#00ff00"), disrupt.expectedDuration.description, [
+                sendDiscordNotification('Disruption Resolved', hexToDecimal("#00ff00"), disrupt.timespans[0].situation.label, [
+                    {
+                        name: 'ETA',
+                        value: disrupt.expectedDuration.description,
+                        inline: true
+                    },
                     {
                         name: 'Link',
                         value: `https://www.ns.nl/reisinformatie/actuele-situatie-op-het-spoor/storing?id=${disrupt.id}`,
