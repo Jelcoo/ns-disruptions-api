@@ -29,7 +29,7 @@ async function checkDisruptions() {
             const disruptionUpdate = await getDisruptionUpdate(disrupt);
             if (disruptionUpdate.length > 0) return;
     
-            createDisruptionUpdate(existingDisruption.disruptionId, disrupt.registrationTime, disrupt);
+            createDisruptionUpdate(existingDisruption.disruptionId, new Date(disrupt.registrationTime), disrupt);
             
             if (disrupt.phase.id == '4') {
                 sendDiscordNotification('Disruption Resolved', hexToDecimal("#00ff00"), disrupt.expectedDuration.description, [

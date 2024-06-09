@@ -20,7 +20,7 @@ export async function createDisruption(nsId: string, cause: string, timeStart: D
 
     const disruptionId = await disruptionResults.insertId;
 
-    createDisruptionUpdate(disruptionId, data.registrationTime, data);
+    createDisruptionUpdate(disruptionId, new Date(data.registrationTime), data);
 }
 
 export async function getDisruptionUpdate(data: string): Promise<DisruptionUpdate[]> {
