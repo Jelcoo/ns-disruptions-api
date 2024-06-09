@@ -23,10 +23,10 @@ export async function createDisruption(nsId: string, cause: string, timeStart: D
     createDisruptionUpdate(disruptionId, new Date(data.registrationTime), data);
 }
 
-export async function getDisruptionUpdate(data: string): Promise<DisruptionUpdate[]> {
+export async function getDisruptionUpdate(data: any): Promise<DisruptionUpdate[]> {
     const [disruptionUpdate] = await db.execute<any>(
-        'SELECT * FROM `disruption_updates` WHERE `data` = ?',
-        [data]
+        'SELECT * FROM `disruption_updates` WHERE JSON_CONTAINS(`data`, ?)',
+        [JSON.stringify(data)]
     );
 
     return disruptionUpdate;
