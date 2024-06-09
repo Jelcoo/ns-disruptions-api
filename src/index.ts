@@ -44,7 +44,7 @@ async function checkDisruptions() {
     });
 }
 
-if (process.argv.includes('--test')) {
+if (process.argv.includes('--now')) {
     checkDisruptions();
 }
 
