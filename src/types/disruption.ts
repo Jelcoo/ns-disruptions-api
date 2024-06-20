@@ -6,5 +6,7 @@ export interface Disruption extends RowDataPacket {
     cause: string;
     timeStart: Date;
     timeEnd: Date;
-    stations: any;
+    route: any;
+    stations: string;
+    stationsGeo: any;
 }

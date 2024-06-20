@@ -12,10 +12,10 @@ export async function getDisruptions(): Promise<Disruption[]> {
     return disruptions;
 }
 
-export async function createDisruption(nsId: string, cause: string, timeStart: Date, stations: any, data: any) {
+export async function createDisruption(nsId: string, cause: string, timeStart: Date, route: any, data: any) {
     const [disruptionResults] = await db.execute<ResultSetHeader>(
-        'INSERT INTO `disruptions` (`nsId`, `cause`, `timeStart`, `stations`) VALUES (?, ?, ?, ?)',
-        [nsId, cause, timeToMysql(timeStart), JSON.stringify(stations)]
+        'INSERT INTO `disruptions` (`nsId`, `cause`, `timeStart`, `route`) VALUES (?, ?, ?, ?)',
+        [nsId, cause, timeToMysql(timeStart), JSON.stringify(route)]
     );
 
     const disruptionId = await disruptionResults.insertId;
@@ -27,6 +27,13 @@ export async function updateDisruptionEnd(disruptionId: number, timeEnd: Date) {
     await db.execute(
         'UPDATE `disruptions` SET `timeEnd` = ? WHERE `disruptionId` = ?',
         [timeToMysql(timeEnd), disruptionId]
+    );
+}
+
+export async function updateDisruptionStations(disruptionId: number, stations: string) {
+    await db.execute(
+        'UPDATE `disruptions` SET `stations` = ? WHERE `disruptionId` = ?',
+        [stations, disruptionId]
     );
 }
 

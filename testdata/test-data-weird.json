@@ -1,0 +1,411 @@
+{
+    "id": "6048648",
+    "end": "2024-06-20T14:45:00+0200",
+    "type": "DISRUPTION",
+    "local": false,
+    "phase": {
+        "id": "1b",
+        "label": "Gevolgen bekend"
+    },
+    "start": "2024-06-20T11:46:53+0200",
+    "title": "Amsterdam-Zaandam-Alkmaar; Haarlem-Alkmaar",
+    "topic": "disruption_6048648_nl",
+    "impact": {
+        "value": 3
+    },
+    "isActive": true,
+    "timespans": [
+        {
+            "end": "2024-06-20T14:45:00+0200",
+            "cause": {
+                "label": "Wisselstoring"
+            },
+            "start": "2024-06-20T11:46:53+0200",
+            "advices": [],
+            "situation": {
+                "label": "Tussen Uitgeest en Alkmaar is er vertraging en rijden er minder treinen door een wisselstoring."
+            }
+        }
+    ],
+    "releaseTime": "2024-06-20T12:06:06+0200",
+    "titleSections": [
+        [
+            {
+                "type": "STATION",
+                "value": "Amsterdam C."
+            },
+            {
+                "type": "STATION",
+                "value": "Uitgeest"
+            },
+            {
+                "type": "ICON",
+                "value": "DISRUPTION"
+            },
+            {
+                "type": "STATION",
+                "value": "Alkmaar"
+            }
+        ],
+        [
+            {
+                "type": "STATION",
+                "value": "Haarlem"
+            },
+            {
+                "type": "STATION",
+                "value": "Uitgeest"
+            },
+            {
+                "type": "ICON",
+                "value": "DISRUPTION"
+            },
+            {
+                "type": "STATION",
+                "value": "Alkmaar"
+            }
+        ]
+    ],
+    "expectedDuration": {
+        "endTime": "2024-06-20T14:45:00+0200",
+        "description": "Dit duurt tot ongeveer 14:45 uur."
+    },
+    "registrationTime": "2024-06-20T12:06:06+0200",
+    "publicationSections": [
+        {
+            "section": {
+                "stations": [
+                    {
+                        "name": "Amsterdam Centraal",
+                        "uicCode": "8400058",
+                        "coordinate": {
+                            "lat": 52.3788871765137,
+                            "lng": 4.90027761459351
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "ASD"
+                    },
+                    {
+                        "name": "Amsterdam Sloterdijk",
+                        "uicCode": "8400059",
+                        "coordinate": {
+                            "lat": 52.3888893127441,
+                            "lng": 4.83777761459351
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "ASS"
+                    },
+                    {
+                        "name": "Zaandam",
+                        "uicCode": "8400731",
+                        "coordinate": {
+                            "lat": 52.4388885498047,
+                            "lng": 4.81361103057861
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "ZD"
+                    },
+                    {
+                        "name": "Koog aan de Zaan",
+                        "uicCode": "8400363",
+                        "coordinate": {
+                            "lat": 52.458610534668,
+                            "lng": 4.80555534362793
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "KZ"
+                    },
+                    {
+                        "name": "Zaandijk Zaanse Schans",
+                        "uicCode": "8400364",
+                        "coordinate": {
+                            "lat": 52.469165802002,
+                            "lng": 4.80499982833862
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "ZZS"
+                    },
+                    {
+                        "name": "Wormerveer",
+                        "uicCode": "8400707",
+                        "coordinate": {
+                            "lat": 52.4891662597656,
+                            "lng": 4.79222202301025
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "WM"
+                    },
+                    {
+                        "name": "Krommenie-Assendelft",
+                        "uicCode": "8400368",
+                        "coordinate": {
+                            "lat": 52.49511,
+                            "lng": 4.75417
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "KMA"
+                    },
+                    {
+                        "name": "Uitgeest",
+                        "uicCode": "8400615",
+                        "coordinate": {
+                            "lat": 52.5216674804687,
+                            "lng": 4.70166683197022
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "UTG"
+                    },
+                    {
+                        "name": "Castricum",
+                        "uicCode": "8400151",
+                        "coordinate": {
+                            "lat": 52.5458335876465,
+                            "lng": 4.65861129760742
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "CAS"
+                    },
+                    {
+                        "name": "Heiloo",
+                        "uicCode": "8400309",
+                        "coordinate": {
+                            "lat": 52.5994453430176,
+                            "lng": 4.70055532455444
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "HLO"
+                    },
+                    {
+                        "name": "Alkmaar",
+                        "uicCode": "8400050",
+                        "coordinate": {
+                            "lat": 52.6377792358398,
+                            "lng": 4.73972225189209
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "AMR"
+                    }
+                ],
+                "direction": "BOTH"
+            },
+            "consequence": {
+                "level": "LESS_TRAINS",
+                "section": {
+                    "stations": [
+                        {
+                            "name": "Uitgeest",
+                            "uicCode": "8400615",
+                            "coordinate": {
+                                "lat": 52.5216674804687,
+                                "lng": 4.70166683197022
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "UTG"
+                        },
+                        {
+                            "name": "Castricum",
+                            "uicCode": "8400151",
+                            "coordinate": {
+                                "lat": 52.5458335876465,
+                                "lng": 4.65861129760742
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "CAS"
+                        },
+                        {
+                            "name": "Heiloo",
+                            "uicCode": "8400309",
+                            "coordinate": {
+                                "lat": 52.5994453430176,
+                                "lng": 4.70055532455444
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "HLO"
+                        },
+                        {
+                            "name": "Alkmaar",
+                            "uicCode": "8400050",
+                            "coordinate": {
+                                "lat": 52.6377792358398,
+                                "lng": 4.73972225189209
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "AMR"
+                        }
+                    ],
+                    "direction": "ONE_WAY"
+                },
+                "description": "vertraging en minder treinen"
+            },
+            "sectionType": "NL"
+        },
+        {
+            "section": {
+                "stations": [
+                    {
+                        "name": "Haarlem",
+                        "uicCode": "8400285",
+                        "coordinate": {
+                            "lat": 52.3877792358398,
+                            "lng": 4.63833332061768
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "HLM"
+                    },
+                    {
+                        "name": "Bloemendaal",
+                        "uicCode": "8400118",
+                        "coordinate": {
+                            "lat": 52.404167175293,
+                            "lng": 4.62750005722046
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "BLL"
+                    },
+                    {
+                        "name": "Santpoort Zuid",
+                        "uicCode": "8400544",
+                        "coordinate": {
+                            "lat": 52.4197235107422,
+                            "lng": 4.63138866424561
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "SPTZ"
+                    },
+                    {
+                        "name": "Santpoort Noord",
+                        "uicCode": "8400543",
+                        "coordinate": {
+                            "lat": 52.4338874816895,
+                            "lng": 4.63250017166138
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "SPTN"
+                    },
+                    {
+                        "name": "Driehuis",
+                        "uicCode": "8400183",
+                        "coordinate": {
+                            "lat": 52.4425010681152,
+                            "lng": 4.63805532455444
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "DRH"
+                    },
+                    {
+                        "name": "Beverwijk",
+                        "uicCode": "8400113",
+                        "coordinate": {
+                            "lat": 52.4783325195313,
+                            "lng": 4.65666675567627
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "BV"
+                    },
+                    {
+                        "name": "Heemskerk",
+                        "uicCode": "8400317",
+                        "coordinate": {
+                            "lat": 52.4952774047852,
+                            "lng": 4.68694448471069
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "HK"
+                    },
+                    {
+                        "name": "Uitgeest",
+                        "uicCode": "8400615",
+                        "coordinate": {
+                            "lat": 52.5216674804687,
+                            "lng": 4.70166683197022
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "UTG"
+                    },
+                    {
+                        "name": "Castricum",
+                        "uicCode": "8400151",
+                        "coordinate": {
+                            "lat": 52.5458335876465,
+                            "lng": 4.65861129760742
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "CAS"
+                    },
+                    {
+                        "name": "Heiloo",
+                        "uicCode": "8400309",
+                        "coordinate": {
+                            "lat": 52.5994453430176,
+                            "lng": 4.70055532455444
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "HLO"
+                    },
+                    {
+                        "name": "Alkmaar",
+                        "uicCode": "8400050",
+                        "coordinate": {
+                            "lat": 52.6377792358398,
+                            "lng": 4.73972225189209
+                        },
+                        "countryCode": "NL",
+                        "stationCode": "AMR"
+                    }
+                ],
+                "direction": "BOTH"
+            },
+            "consequence": {
+                "level": "LESS_TRAINS",
+                "section": {
+                    "stations": [
+                        {
+                            "name": "Uitgeest",
+                            "uicCode": "8400615",
+                            "coordinate": {
+                                "lat": 52.5216674804687,
+                                "lng": 4.70166683197022
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "UTG"
+                        },
+                        {
+                            "name": "Castricum",
+                            "uicCode": "8400151",
+                            "coordinate": {
+                                "lat": 52.5458335876465,
+                                "lng": 4.65861129760742
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "CAS"
+                        },
+                        {
+                            "name": "Heiloo",
+                            "uicCode": "8400309",
+                            "coordinate": {
+                                "lat": 52.5994453430176,
+                                "lng": 4.70055532455444
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "HLO"
+                        },
+                        {
+                            "name": "Alkmaar",
+                            "uicCode": "8400050",
+                            "coordinate": {
+                                "lat": 52.6377792358398,
+                                "lng": 4.73972225189209
+                            },
+                            "countryCode": "NL",
+                            "stationCode": "AMR"
+                        }
+                    ],
+                    "direction": "ONE_WAY"
+                },
+                "description": "vertraging en minder treinen"
+            },
+            "sectionType": "NL"
+        }
+    ],
+    "alternativeTransportTimespans": []
+}

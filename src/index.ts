@@ -4,8 +4,8 @@ import { getDisruptions as apiGetDisruptions } from './api/index';
 import { getDisruptions as databaseGetDisruptions, createDisruption, getDisruptionUpdate, createDisruptionUpdate, getDisruptionUpdatesByDisruptionId } from './database/index';
 import { sendNotification as sendDiscordNotification } from './notification/discord';
 import { hexToDecimal } from './utils/colors';
-import { updateEnd } from './updateEnd';
 import { Disruption } from './types/disruption';
+import { updateStations, updateEnd } from './updateDisruption';
 
 async function checkDisruptions() {
     console.log('Checking disruptions...');
@@ -56,13 +56,20 @@ async function checkDisruptions() {
     });
 
     existingDisruptions.forEach(async (disruption: Disruption) => {
-        if (disruption.timeEnd != null) return;
-
         const disruptionUpdates = await getDisruptionUpdatesByDisruptionId(disruption.disruptionId);
         if (disruptionUpdates.length <= 0) return;
-        updateEnd(disruptions, disruption, disruptionUpdates);
+        const lastUpdate = disruptionUpdates[disruptionUpdates.length - 1]
+
+        if (disruption.stations == null) {
+            updateStations(disruption, lastUpdate);
+        }
+
+        if (disruption.timeEnd == null) {
+            updateEnd(disruptions, disruption, lastUpdate);
+        }
     });
 }
+
 
 if (process.argv.includes('--now')) {
     checkDisruptions();
