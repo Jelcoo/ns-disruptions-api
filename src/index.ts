@@ -5,7 +5,7 @@ import { getDisruptions as databaseGetDisruptions, createDisruption, getDisrupti
 import { sendNotification as sendDiscordNotification } from './notification/discord';
 import { hexToDecimal } from './utils/colors';
 import { Disruption } from './types/disruption';
-import { updateStations, updateEnd } from './updateDisruption';
+import { updateStations, updateEnd, updateStationsGeo } from './updateDisruption';
 
 async function checkDisruptions() {
     console.log('Checking disruptions...');
@@ -61,7 +61,11 @@ async function checkDisruptions() {
         const lastUpdate = disruptionUpdates[disruptionUpdates.length - 1]
 
         if (disruption.stations == null) {
-            updateStations(disruption, lastUpdate);
+            disruption.stations = await updateStations(disruption, lastUpdate);
+        }
+        
+        if (disruption.stationsGeo == null) {
+            updateStationsGeo(disruption);
         }
 
         if (disruption.timeEnd == null) {
@@ -69,7 +73,6 @@ async function checkDisruptions() {
         }
     });
 }
-
 
 if (process.argv.includes('--now')) {
     checkDisruptions();

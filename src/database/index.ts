@@ -37,6 +37,13 @@ export async function updateDisruptionStations(disruptionId: number, stations: s
     );
 }
 
+export async function updateDisruptionStationsGeo(disruptionId: number, geoData: any) {
+    await db.execute(
+        'UPDATE `disruptions` SET `stationsGeo` = ? WHERE `disruptionId` = ?',
+        [JSON.stringify(geoData), disruptionId]
+    );
+}
+
 export async function getDisruptionUpdatesByDisruptionId(disruptionId: number): Promise<DisruptionUpdate[]> {
     const [disruptionUpdates] = await db.query<DisruptionUpdate[]>(
         'SELECT * FROM `disruption_updates` WHERE `disruptionId` = ?',

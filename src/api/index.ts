@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 
 const urls = {
     'getDisruptions': 'https://gateway.apiportal.ns.nl/disruptions/v3',
+    'getGeoRouteByStationCodes': 'https://gateway.apiportal.ns.nl/Spoorkaart-API/api/v1/traject'
 };
 
 const headers = {
@@ -21,5 +22,13 @@ export async function getDisruptions(isActive = true, type = 'disruption') {
         headers
     });
     
+    return response.data;
+}
+
+export async function getGeoRouteByStationCodes(stationCodes: string) {
+    const response = await axios.get(`${urls.getGeoRouteByStationCodes}?stations=${stationCodes}`, {
+        headers
+    });
+
     return response.data;
 }
