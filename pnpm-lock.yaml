@@ -11,6 +11,9 @@ importers:
       '@sentry/node':
         specifier: ^8.10.0
         version: 8.10.0
+      '@sentry/profiling-node':
+        specifier: ^8.10.0
+        version: 8.10.0
       axios:
         specifier: ^1.7.2
         version: 1.7.2
@@ -296,6 +299,11 @@ packages:
       '@opentelemetry/sdk-trace-base': ^1.25.0
       '@opentelemetry/semantic-conventions': ^1.25.0
 
+  '@sentry/profiling-node@8.10.0':
+    resolution: {integrity: sha512-fjs4IQT4oaSTAAt+HexWlXL0NbCiy1y4Ix2rfD6UY03zO/RQNelygSfpCMKlnwkd80O9KjJ24cssuSz7QBJwmA==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+
   '@sentry/types@8.10.0':
     resolution: {integrity: sha512-6kgh6NqgQHcnnD7dOe3THcVkzv2nor/f94x3odmPShN2AWBfPRprHZZsLTjh/3aC7l76V2nfuQ4wgRvwsddTWw==}
     engines: {node: '>=14.18'}
@@ -545,6 +553,10 @@ packages:
   denque@2.1.0:
     resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
     engines: {node: '>=0.10'}
+
+  detect-libc@2.0.3:
+    resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
+    engines: {node: '>=8'}
 
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
@@ -814,6 +826,10 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  node-abi@3.65.0:
+    resolution: {integrity: sha512-ThjYBfoDNr08AWx6hGaRbfPwxKV9kVzAzOzlLKbk2CuqXE2xnCh+cbAGnwM3t8Lq4v9rUB7VfondlkBckcJrVA==}
+    engines: {node: '>=10'}
 
   opentelemetry-instrumentation-fetch-node@1.2.0:
     resolution: {integrity: sha512-aiSt/4ubOTyb1N5C2ZbGrBvaJOXIZhZvpRPYuUVxQJe27wJZqf/o65iPrqgLcgfeOLaQ8cS2Q+762jrYvniTrA==}
@@ -1369,6 +1385,17 @@ snapshots:
       '@sentry/types': 8.10.0
       '@sentry/utils': 8.10.0
 
+  '@sentry/profiling-node@8.10.0':
+    dependencies:
+      '@sentry/core': 8.10.0
+      '@sentry/node': 8.10.0
+      '@sentry/types': 8.10.0
+      '@sentry/utils': 8.10.0
+      detect-libc: 2.0.3
+      node-abi: 3.65.0
+    transitivePeerDependencies:
+      - supports-color
+
   '@sentry/types@8.10.0': {}
 
   '@sentry/utils@8.10.0':
@@ -1659,6 +1686,8 @@ snapshots:
 
   denque@2.1.0: {}
 
+  detect-libc@2.0.3: {}
+
   dir-glob@3.0.1:
     dependencies:
       path-type: 4.0.0
@@ -1948,6 +1977,10 @@ snapshots:
       lru-cache: 7.18.3
 
   natural-compare@1.4.0: {}
+
+  node-abi@3.65.0:
+    dependencies:
+      semver: 7.6.2
 
   opentelemetry-instrumentation-fetch-node@1.2.0:
     dependencies:
