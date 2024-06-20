@@ -16,7 +16,7 @@ async function checkDisruptions() {
 
         disruptions.forEach(async (disrupt: any) => {
             if (!existingIds.includes(disrupt.id)) {
-                createDisruption(disrupt.id, disrupt.timespans[0].cause.label, new Date(disrupt.timespans[0].start), disrupt.titleSections, disrupt);
+                await createDisruption(disrupt.id, disrupt.timespans[0].cause.label, new Date(disrupt.timespans[0].start), disrupt.titleSections, disrupt);
                 existingDisruptions = await databaseGetDisruptions();
 
                 sendDiscordNotification('New Disruption', hexToDecimal("#ff0000"), disrupt.timespans[0].situation.label, [
