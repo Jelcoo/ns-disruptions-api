@@ -85,7 +85,7 @@ if (process.argv.includes('--now')) {
     checkDisruptions();
 }
 
-const CronJobWithCheckIn = Sentry.cron.instrumentCron(CronJob, "ns-disruption-cron-job");
+const CronJobWithCheckIn = Sentry.cron.instrumentCron(CronJob, "ns-disruptions");
 
 new CronJobWithCheckIn(
 	'0 * * * * *',
