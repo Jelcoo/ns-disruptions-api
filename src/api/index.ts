@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 
 const urls = {
     'getDisruptions': 'https://gateway.apiportal.ns.nl/disruptions/v3',
-    'getGeoRouteByStationCodes': 'https://gateway.apiportal.ns.nl/Spoorkaart-API/api/v1/traject'
+    'getGeoRouteByStationCodes': 'https://gateway.apiportal.ns.nl/Spoorkaart-API/api/v1/traject.geojson'
 };
 
 const headers = {
