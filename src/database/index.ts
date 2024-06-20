@@ -23,6 +23,22 @@ export async function createDisruption(nsId: string, cause: string, timeStart: D
     createDisruptionUpdate(disruptionId, new Date(data.registrationTime), data);
 }
 
+export async function updateDisruptionEnd(disruptionId: number, timeEnd: Date) {
+    await db.execute(
+        'UPDATE `disruptions` SET `timeEnd` = ? WHERE `disruptionId` = ?',
+        [timeToMysql(timeEnd), disruptionId]
+    );
+}
+
+export async function getDisruptionUpdatesByDisruptionId(disruptionId: number): Promise<DisruptionUpdate[]> {
+    const [disruptionUpdates] = await db.query<DisruptionUpdate[]>(
+        'SELECT * FROM `disruption_updates` WHERE `disruptionId` = ?',
+        [disruptionId]
+    );
+
+    return disruptionUpdates;
+}
+
 export async function getDisruptionUpdate(data: any): Promise<DisruptionUpdate[]> {
     const [disruptionUpdate] = await db.execute<any>(
         'SELECT * FROM `disruption_updates` WHERE JSON_CONTAINS(`data`, ?)',
