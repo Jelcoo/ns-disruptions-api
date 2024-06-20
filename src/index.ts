@@ -5,7 +5,7 @@ import { getDisruptions as databaseGetDisruptions, createDisruption, getDisrupti
 import { sendNotification as sendDiscordNotification } from './notification/discord';
 import { hexToDecimal } from './utils/colors';
 import { Disruption } from './types/disruption';
-import { updateStations, updateEnd, updateStationsGeo } from './updateDisruption';
+import { updateStations, updateEnd, updateStationsGeo, updateCause } from './updateDisruption';
 
 async function checkDisruptions() {
     console.log('Checking disruptions...');
@@ -62,16 +62,19 @@ async function checkDisruptions() {
             if (disruptionUpdates.length <= 0) return;
             const lastUpdate = disruptionUpdates[disruptionUpdates.length - 1]
 
-            if (disruption.stations == null) {
+            if (disruption.stations == null || disruption.timeEnd == null) {
                 disruption.stations = await updateStations(disruption, lastUpdate);
             }
             
-            if (disruption.stationsGeo == null) {
+            if (disruption.stationsGeo == null || disruption.timeEnd == null) {
                 updateStationsGeo(disruption);
             }
 
             if (disruption.timeEnd == null) {
-                updateEnd(disruptions, disruption, lastUpdate);
+                const endTime = await updateEnd(disruptions, disruption, lastUpdate);
+                if (endTime) disruption.timeEnd = endTime;
+
+                disruption.cause = await updateCause(disruption, lastUpdate);
             }
         });
     } catch (error) {

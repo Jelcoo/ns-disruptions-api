@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { Disruption } from './types/disruption';
 import { DisruptionUpdate } from './types/disruption_update';
-import { updateDisruptionEnd, updateDisruptionStations, updateDisruptionStationsGeo } from './database';
+import { updateDisruptionCause, updateDisruptionEnd, updateDisruptionStations, updateDisruptionStationsGeo } from './database';
 import { getGeoRouteByStationCodes } from './api';
 
 export async function updateEnd(apiDisruptions: any, disruption: Disruption, lastUpdate: DisruptionUpdate) {
@@ -12,7 +12,10 @@ export async function updateEnd(apiDisruptions: any, disruption: Disruption, las
     const endTime = lastUpdate.data.end;
     console.log(`Updating end time for ${disruption.nsId} (${endTime})`);
 
-    updateDisruptionEnd(disruption.disruptionId, new Date(endTime));
+    const parsedTime = new Date(endTime);
+    updateDisruptionEnd(disruption.disruptionId, parsedTime);
+
+    return parsedTime;
 }
 
 export async function updateStations(disruption: Disruption, lastUpdate: DisruptionUpdate) {
@@ -42,4 +45,14 @@ export async function updateStationsGeo(disruption: Disruption) {
     console.log(`Updating geolocated stations for ${disruption.nsId} (${routes})`);
     
     await updateDisruptionStationsGeo(disruption.disruptionId, geoData);
+}
+
+export async function updateCause(disruption: Disruption, lastUpdate: DisruptionUpdate) {
+    const newCause = lastUpdate.data.timespans[0].cause.label;
+
+    console.log(`Updating cause for ${disruption.nsId} (${newCause})`);
+
+    updateDisruptionCause(disruption.disruptionId, newCause);
+
+    return newCause;
 }
