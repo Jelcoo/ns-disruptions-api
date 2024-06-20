@@ -29,5 +29,7 @@ export async function sendNotification(title: string, color: number, description
     data.embeds[0].color = color;
     data.embeds[0].fields = fields;
 
+    if (!url) return;
+
     await axions.post(url!, data, config);
 }
