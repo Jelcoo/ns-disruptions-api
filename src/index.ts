@@ -10,12 +10,13 @@ import { updateStations, updateEnd, updateStationsGeo } from './updateDisruption
 async function checkDisruptions() {
     console.log('Checking disruptions...');
     const disruptions: any = await apiGetDisruptions();
-    const existingDisruptions = await databaseGetDisruptions();
+    let existingDisruptions = await databaseGetDisruptions();
     const existingIds = existingDisruptions.map(disruption => disruption.nsId);
 
     disruptions.forEach(async (disrupt: any) => {
         if (!existingIds.includes(disrupt.id)) {
             createDisruption(disrupt.id, disrupt.timespans[0].cause.label, new Date(disrupt.timespans[0].start), disrupt.titleSections, disrupt);
+            existingDisruptions = await databaseGetDisruptions();
 
             sendDiscordNotification('New Disruption', hexToDecimal("#ff0000"), disrupt.timespans[0].situation.label, [
                 {
@@ -55,7 +56,7 @@ async function checkDisruptions() {
         }
     });
 
-    existingDisruptions.forEach(async (disruption: Disruption) => {
+    await existingDisruptions.forEach(async (disruption: Disruption) => {
         const disruptionUpdates = await getDisruptionUpdatesByDisruptionId(disruption.disruptionId);
         if (disruptionUpdates.length <= 0) return;
         const lastUpdate = disruptionUpdates[disruptionUpdates.length - 1]
