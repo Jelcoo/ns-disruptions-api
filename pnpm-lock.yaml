@@ -34,8 +34,8 @@ importers:
         specifier: ^9.4.0
         version: 9.4.0
       '@sentry/types':
-        specifier: 8.9.2
-        version: 8.9.2
+        specifier: 8.10.0
+        version: 8.10.0
       '@types/node':
         specifier: ^20.14.2
         version: 20.14.2
@@ -306,6 +306,10 @@ packages:
     resolution: {integrity: sha512-MUIT3KCC2im6GCrnicuiBqObRV7QVnMcdG7ZYMYE72L8ZoUd9bkTW1GWWYgTPZ1Tmxk5CT2GvTQmml9Wo7ESHg==}
     engines: {node: '>=14.18'}
     hasBin: true
+
+  '@sentry/types@8.10.0':
+    resolution: {integrity: sha512-6kgh6NqgQHcnnD7dOe3THcVkzv2nor/f94x3odmPShN2AWBfPRprHZZsLTjh/3aC7l76V2nfuQ4wgRvwsddTWw==}
+    engines: {node: '>=14.18'}
 
   '@sentry/types@8.9.2':
     resolution: {integrity: sha512-+LFOyQGl+zk5SZRGZD2MEURf7i5RHgP/mt3s85Rza+vz8M211WJ0YsjkIGUJFSY842nged5QLx4JysLaBlLymg==}
@@ -1398,6 +1402,8 @@ snapshots:
       node-abi: 3.65.0
     transitivePeerDependencies:
       - supports-color
+
+  '@sentry/types@8.10.0': {}
 
   '@sentry/types@8.9.2': {}
 
