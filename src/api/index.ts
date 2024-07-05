@@ -3,7 +3,8 @@ import { readFileSync } from 'fs';
 
 const urls = {
     'getDisruptions': 'https://gateway.apiportal.ns.nl/disruptions/v3',
-    'getGeoRouteByStationCodes': 'https://gateway.apiportal.ns.nl/Spoorkaart-API/api/v1/traject.geojson'
+    'getGeoRouteByStationCodes': 'https://gateway.apiportal.ns.nl/Spoorkaart-API/api/v1/traject.geojson',
+    'getDrivingVehicles': 'https://gateway.apiportal.ns.nl/virtual-train-api/api/vehicle',
 };
 
 const headers = {
@@ -27,6 +28,14 @@ export async function getDisruptions(isActive = true, type = 'disruption') {
 
 export async function getGeoRouteByStationCodes(stationCodes: string) {
     const response = await axios.get(`${urls.getGeoRouteByStationCodes}?stations=${stationCodes}`, {
+        headers
+    });
+
+    return response.data;
+}
+
+export async function getDrivingVehicles() {
+    const response = await axios.get(`${urls.getDrivingVehicles}`, {
         headers
     });
 

@@ -8,6 +8,7 @@ import { sendNotification as sendDiscordNotification } from './notification/disc
 import { hexToDecimal } from './utils/colors';
 import { Disruption } from './types/disruption';
 import { updateStations, updateEnd, updateStationsGeo, updateCause } from './updateDisruption';
+import './websocket';
 
 async function checkDisruptions() {
     console.log('Checking disruptions...');
