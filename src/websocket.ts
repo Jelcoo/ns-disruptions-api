@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
 import { getDrivingVehicles } from './api';
+import { CronJob } from 'cron';
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -15,4 +16,18 @@ io.on("connection", async (socket: Socket) => {
     socket.emit("vehicles", vehicles);
 });
 
+function emitVehicles() {
+    io.emit("vehicles", getDrivingVehicles());
+}
+
 httpServer.listen(3000);
+
+new CronJob(
+	'* * * * * *',
+	function () {
+        emitVehicles();
+	},
+	null, // onComplete
+	true, // start
+	'Europe/Amsterdam'
+);
