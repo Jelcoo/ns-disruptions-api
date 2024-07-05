@@ -1,10 +1,12 @@
 import 'dotenv/config';
-import { Server } from 'socket.io';
+import { createServer } from "http";
+import { Server, Socket } from "socket.io";
 
-console.log('Websocket server started');
+const httpServer = createServer();
+const io = new Server(httpServer);
 
-const io = new Server(3000);
-
-io.on('connection', (socket) => {
-    console.log('Client connected');
+io.on("connection", (socket: Socket) => {
+    console.log("Connected: " + socket.id);
 });
+
+httpServer.listen(3000);
