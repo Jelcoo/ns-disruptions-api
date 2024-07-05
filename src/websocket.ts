@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
+import { getDrivingVehicles } from './api';
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -9,8 +10,9 @@ const io = new Server(httpServer, {
     }
 });
 
-io.on("connection", (socket: Socket) => {
-    console.log("Connected: " + socket.id);
+io.on("connection", async (socket: Socket) => {
+    const vehicles = await getDrivingVehicles();
+    socket.emit("vehicles", vehicles);
 });
 
 httpServer.listen(3000);
