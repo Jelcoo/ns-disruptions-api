@@ -17,7 +17,9 @@ io.on("connection", async (socket: Socket) => {
 });
 
 function emitVehicles() {
-    io.emit("vehicles", getDrivingVehicles());
+    io.emit("vehicles", async () => {
+        return await getDrivingVehicles();
+    });
 }
 
 httpServer.listen(3000);
