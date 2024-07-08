@@ -35,7 +35,7 @@ export async function getGeoRouteByStationCodes(stationCodes: string) {
 }
 
 export async function getDrivingVehicles() {
-    const response = await axios.get(`${urls.getDrivingVehicles}`, {
+    const response = await axios.get(`${urls.getDrivingVehicles}?features=bus`, {
         headers
     });
 
