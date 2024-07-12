@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import './sentry';
-import * as Sentry from '@sentry/node';
 import { CronJob } from 'cron';
 import { getDisruptions as apiGetDisruptions } from './api/index';
 import { getDisruptions as databaseGetDisruptions, createDisruption, getDisruptionUpdate, createDisruptionUpdate, getDisruptionUpdatesByDisruptionId } from './database/index';
@@ -86,9 +85,7 @@ if (process.argv.includes('--now')) {
     checkDisruptions();
 }
 
-const CronJobWithCheckIn = Sentry.cron.instrumentCron(CronJob, "ns-disruptions");
-
-new CronJobWithCheckIn(
+new CronJob(
 	'0 * * * * *',
 	function () {
         checkDisruptions();
