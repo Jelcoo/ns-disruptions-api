@@ -6,8 +6,6 @@
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@sentry/node": "8.9.2",
-    "@sentry/profiling-node": "8.9.2",
     "axios": "^1.7.2",
     "cron": "^3.1.7",
     "dotenv": "^16.4.5",
@@ -17,7 +15,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.4.0",
-    "@sentry/types": "8.10.0",
     "@types/node": "^20.14.2",
     "eslint": "~9.4.0",
     "globals": "^15.4.0",

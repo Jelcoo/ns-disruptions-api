@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import './sentry';
 import { CronJob } from 'cron';
 import { getDisruptions as apiGetDisruptions } from './api/index';
 import { getDisruptions as databaseGetDisruptions, createDisruption, getDisruptionUpdate, createDisruptionUpdate, getDisruptionUpdatesByDisruptionId } from './database/index';
