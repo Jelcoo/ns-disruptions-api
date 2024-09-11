@@ -11,6 +11,7 @@ const io = new Server(httpServer, {
 });
 
 let activeVehicles: any = null;
+let counter = 0;
 
 io.on("connection", async (socket: Socket) => {
     if (activeVehicles) {
@@ -19,8 +20,9 @@ io.on("connection", async (socket: Socket) => {
 });
 
 async function emitVehicles() {
-    const vehicles = await getDrivingVehicles();
+    let vehicles = await getDrivingVehicles();
     activeVehicles = vehicles;
+    vehicles.counter = counter++;
     io.emit("vehicles", vehicles);
     setTimeout(emitVehicles, 1000);
 }
