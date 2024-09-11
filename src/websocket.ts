@@ -10,7 +10,7 @@ const io = new Server(httpServer, {
     }
 });
 
-let activeVehicles = null;
+let activeVehicles: any = null;
 
 io.on("connection", async (socket: Socket) => {
     if (activeVehicles) {
