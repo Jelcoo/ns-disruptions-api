@@ -9,7 +9,7 @@ export async function updateEnd(apiDisruptions: any, disruption: Disruption, las
 
     if (activeDisruptionsIds.includes(disruption.nsId)) return;
 
-    const endTime = lastUpdate.data.end;
+    const endTime = JSON.parse(lastUpdate.data).end;
     console.log(`Updating end time for ${disruption.nsId} (${endTime})`);
 
     const parsedTime = new Date(endTime);
@@ -20,7 +20,7 @@ export async function updateEnd(apiDisruptions: any, disruption: Disruption, las
 
 export async function updateStations(disruption: Disruption, lastUpdate: DisruptionUpdate) {
     let stationString = "";
-    lastUpdate.data.publicationSections.forEach(async (section: any) => {
+    JSON.parse(lastUpdate.data).publicationSections.forEach(async (section: any) => {
         const stations = section.consequence.section.stations;
         stationString += stations.map((station: any) => station.stationCode).join(",") + ";";
     });
@@ -48,7 +48,7 @@ export async function updateStationsGeo(disruption: Disruption) {
 }
 
 export async function updateCause(disruption: Disruption, lastUpdate: DisruptionUpdate) {
-    const newCause = lastUpdate.data.timespans[0].cause.label;
+    const newCause = JSON.parse(lastUpdate.data).timespans[0].cause.label;
 
     console.log(`Updating cause for ${disruption.nsId} (${newCause})`);
 
