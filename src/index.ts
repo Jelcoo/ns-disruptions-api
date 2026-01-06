@@ -67,7 +67,8 @@ async function checkDisruptions() {
             disruption.stations = await updateStations(disruption, lastUpdate);
         }
             
-        if (disruption.stationsGeo == null || disruption.timeEnd == null) {
+        // Don't refresh when not ended, hitting ratelimit
+        if (disruption.stationsGeo == null/* || disruption.timeEnd == null*/) {
             updateStationsGeo(disruption);
         }
 
