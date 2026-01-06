@@ -22,7 +22,7 @@ async function emitVehicles() {
     const vehicles = await getDrivingVehicles();
     activeVehicles = vehicles;
     io.emit("vehicles", vehicles);
-    setTimeout(emitVehicles, 1000);
+    setTimeout(emitVehicles, 10000);
 }
 
 httpServer.listen(3000);
